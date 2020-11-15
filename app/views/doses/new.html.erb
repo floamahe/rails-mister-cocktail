@@ -4,5 +4,11 @@
     <%= f.association :ingredient %>
         <%= f.submit "Submit dose", class: "btn btn-primary" %>
   <% end %>
-  <%= link_to "back to cocktail", cocktail_path(@cocktail) %>
+
+  <div class="footer">
+    <div class="footer-links">
+      <i class="fas fa-arrow-alt-circle-left"><%= link_to "Back to cocktail", cocktail_path(@cocktail) %></i>
+    </div>
+  </div>
+
 </div>

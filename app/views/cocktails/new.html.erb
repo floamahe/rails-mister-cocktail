@@ -4,5 +4,10 @@
     <%= f.input :photo, as: :file %>
     <%= f.submit "Submit cocktail", class: "btn btn-primary" %>
   <% end %>
-  <%= link_to "Back to cocktails list", cocktails_path %> |
+  
+  <div class="footer">
+    <div class="footer-links">
+      <i class="fas fa-arrow-alt-circle-left"><%= link_to "Back to cocktails list", cocktails_path %></i>
+    </div>
+  </div>
 </div>

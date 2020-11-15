@@ -1,9 +1,26 @@
 <div class="container">
-  <h1>List of cocktails</h1>
-  <ul>
-    <% @cocktails.each do |cocktail| %>
-      <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
-    <% end %>
-  </ul>
-  <%= link_to "Add a new cocktail", new_cocktail_path %>
-</div>
+
+  <div class="banner"  style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcShJB7R-Y8Pro-91HEc3qiucax4CRObjo1SOA&usqp=CAU);">
+    
+      <h1>Open Shaker</h1>
+      <%= link_to "Add a new cocktail", new_cocktail_path, class: "btn btn-gradient" %>
+    
+  </div>
+  <div class="row">
+    
+      <% @cocktails.each do |cocktail| %>
+      <div class=" col-12 col-md-6 col-lg-4">
+        <div class="card-product">
+          <% if cocktail.photo.attached? %>
+            <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+          <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+        </div>
+        </div>
+      <% end %>
+    
+  </div>
+  <br>
+  
+  </div>
+

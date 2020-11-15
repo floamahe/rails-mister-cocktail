@@ -3,16 +3,26 @@
   <% if @cocktail.photo.attached? %>
     <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
+
+  <%= link_to "Add a new dose",  new_cocktail_dose_path(@cocktail), class: "btn btn-gradient"%>
+  <br>
   <% @cocktail.doses.each do |dose| %>
-    <%= dose.description %>
-    <%= dose.ingredient.name %>
-    <%= link_to "delete a dose", 
-      dose_path(dose),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
+    <ul class="list-group-flush">
+      <li class="list-group-item"><%= dose.description %><%= " " %><%= dose.ingredient.name %></li>
+      <%= link_to "delete this dose", 
+        dose_path(dose),
+        class: "btn btn-ghost",
+        method: :delete,
+        data: { confirm: "Are you sure?"
+         } %>
+    </ul>
   <% end %>
-  <br>
-  <%= link_to "Back to cocktails list", cocktails_path %> |
-  <br>
-  <%= link_to "Add a new dose",  new_cocktail_dose_path(@cocktail)%>
+ 
+  <div class="footer">
+    <div class="footer-links">
+      <i class="fas fa-arrow-alt-circle-left"><%= link_to "Back to cocktails list", cocktails_path %></i>
+    </div>
+  </div>
+
 </div>
+
